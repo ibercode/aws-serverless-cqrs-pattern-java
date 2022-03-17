@@ -1,8 +1,21 @@
 ## Description
-## The command query responsibility segregation (CQRS) pattern implemented in Java using SAM
+## A Java implementation of the command query responsibility segregation (CQRS) pattern using AWS Serverless
 
-This is a Java implementation of the CQRS pattern.
+This is a Java implementation of the CQRS pattern using AWS Serverless and AWS Serverless Application Model SAM.
+
+For this implementation we have used the architecture created by Rodolfo Jr. Cerrada (AWS), Dmitry Gulin (AWS), and Tabby Ward (AWS)
+
 Reference: https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/decompose-monoliths-into-microservices-by-using-cqrs-and-event-sourcing.html?did=pg_card&trk=pg_card
+
+The SAM template contains all the information to deploy AWS resources(three Lambda functions and two DynamoDB table)
+and also the permission required by these service to communicate.
+
+You will be able to create and delete the CloudFormation stack using the CLI commands.
+
+The CQRS pattern separates responsibilities of the command and query models.
+For more details about this pattern see https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/decompose-monoliths-into-microservices-by-using-cqrs-and-event-sourcing.html?did=pg_card&trk=pg_card
+
+This is fully functional example implemented in Java 11.
 
 Important: this application uses various AWS services and there are costs associated with these services after the Free Tier usage - please see the AWS Pricing page for details. You are responsible for any AWS costs incurred.
 
@@ -21,18 +34,6 @@ The AWS services used in this pattern are
 Topology
 
 <img src="topology.png" alt="topology" width="80%"/>
-
-
-## Description
-The SAM template contains all the information to deploy AWS resources(three Lambda functions and two DynamoDB table)
-and also the permission required by these service to communicate.
-
-You will be able to create and delete the CloudFormation stack using the CLI commands.
-
-The CQRS pattern separates responsibilities of the command and query models.
-For more details about this pattern see https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/decompose-monoliths-into-microservices-by-using-cqrs-and-event-sourcing.html?did=pg_card&trk=pg_card
-
-This is fully functional example implemented in Java 11.
 
 ## Deployment commands
 
