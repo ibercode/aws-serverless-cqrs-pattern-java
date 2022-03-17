@@ -12,11 +12,10 @@ import java.util.UUID;
 
 public class DDBUtils {
 
-    private DynamoDbClient ddb;
-    private DynamoDbEnhancedClient enhancedClient;
+    private final DynamoDbEnhancedClient enhancedClient;
 
     public DDBUtils(String region) {
-        this.ddb = DynamoDbClient.builder()
+        DynamoDbClient ddb = DynamoDbClient.builder()
                 .region(Region.of(region))
                 .build();
         this.enhancedClient = DynamoDbEnhancedClient.builder()

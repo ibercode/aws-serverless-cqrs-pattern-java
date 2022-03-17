@@ -13,15 +13,13 @@ import java.util.Map;
 
 public class DataTransfer implements RequestHandler<DynamodbEvent, String> {
 
-    private DDBUtils ddbUtils;
-
     @Override
     public String handleRequest(DynamodbEvent dynamodbEvent, Context context) {
 
         String queryTableName = System.getenv("QUERY_TABLE_NAME");
         String region = System.getenv("REGION");
 
-        ddbUtils = new DDBUtils(region);
+        DDBUtils ddbUtils = new DDBUtils(region);
 
         List<Customer> customers = new ArrayList<>();
 
@@ -39,6 +37,6 @@ public class DataTransfer implements RequestHandler<DynamodbEvent, String> {
 
         ddbUtils.saveIntoQueryDDB(customers, queryTableName);
 
-        return null;
+        return "Done";
     }
 }

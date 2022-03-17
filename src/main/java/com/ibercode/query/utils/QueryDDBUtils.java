@@ -12,12 +12,11 @@ import java.util.stream.Collectors;
 
 public class QueryDDBUtils {
 
-    private DynamoDbClient ddb;
-    private DynamoDbEnhancedClient enhancedClient;
+    private final DynamoDbEnhancedClient enhancedClient;
 
     public QueryDDBUtils(String region) {
 
-        this.ddb = DynamoDbClient.builder()
+        DynamoDbClient ddb = DynamoDbClient.builder()
                 .region(Region.of(region))
                 .build();
         this.enhancedClient = DynamoDbEnhancedClient.builder()

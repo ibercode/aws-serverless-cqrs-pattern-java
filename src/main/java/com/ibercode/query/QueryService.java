@@ -9,19 +9,17 @@ import java.util.List;
 
 public class QueryService implements RequestHandler {
 
-    private QueryDDBUtils ddbUtils;
-
     @Override
     public List<QueryCustomer> handleRequest(Object o, Context context) {
 
         String queryTableName = System.getenv("QUERY_TABLE_NAME");
         String region = System.getenv("REGION");
 
-        ddbUtils = new QueryDDBUtils(region);
+        QueryDDBUtils ddbUtils = new QueryDDBUtils(region);
 
         List<QueryCustomer> customers = ddbUtils.getAllCustomers(queryTableName);
 
-        customers.stream().forEach(System.out::println);
+        customers.forEach(System.out::println);
 
         return customers;
     }
